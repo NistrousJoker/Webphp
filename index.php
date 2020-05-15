@@ -4,29 +4,23 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<?php
-session_start();
-if($_SESSION['token']!=sha1("crash")){
-    header("Location:login.php");
-}
- ?>
+<?php include_once 'compruebaLogin.php'; ?>
 <html>
     <head>
         <meta charset="UTF-8">
         <title></title>
-        
+
     </head>
     <body>
 
-        
+
         <h1>Login correcto</h1>
         <section class="servicios">
                 <div class="contenedor">
-                    <h2 class="titulo">Bienvenido <%=usuarioActual %></h2>
                     <div class="servicio-cont">
                         <div class="servicio-ind">
                             <img class="imagen-prueba1" src="imagenes/descarga.jfif" alt="" class="imagen-usuario">
-                            <h3><button type="submit" onclick="Cargar('ModificarUsuarios.php', 'cuerpo');">Usuarios</button></h3>
+                            <h3><a href="modificarUsuarios.php"><button type="submit">Usuarios</button></a></h3>
                             <p></p>
                         </div>
                         <div class="servicio-ind">
@@ -41,7 +35,7 @@ if($_SESSION['token']!=sha1("crash")){
                         </div>
                         <div class="servicio-ind">
                             <img class="imagen-prueba3" src="imagenes/productos/cerrar.jpg" alt="" class="imagen-usuario">
-                            <h3><button type="submit"onclick="Cargar('CierreSesion','cuerpo')">Cerrar Sesion </button></h3>
+                            <h3><a href="src/controladores/cerrarSesion.php"><button type="submit">Cerrar Sesion </button></a></h3>
                             <p></p>
                         </div>
                     </div>
