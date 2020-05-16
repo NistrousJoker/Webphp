@@ -30,7 +30,7 @@ and open the template in the editor.
                         </div>
                         <div class="servicio-ind">
                             <img class="imagen-prueba2" src="imagenes/productos/pedido.jpg" alt="" class="imagen-usuario">
-                            <h3><button type="submit" onclick="Cargar('ModificarPedidos.php', 'cuerpo');">Pedidos</button></h3>
+                            <h3><a href="modificarPedidos.php"><button type="submit">Pedidos</button></a></h3>
                             <p></p>
                         </div>
                         <div class="servicio-ind">
