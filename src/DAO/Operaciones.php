@@ -3,6 +3,7 @@
 include_once 'ConexionBD.php';
 include_once '../modelo/Usuario.php';
 include_once '../modelo/Pedido.php';
+include_once '../modelo/Producto.php';
 
 class Operaciones{
  public function login($usuario,$clave){
@@ -93,6 +94,23 @@ public function getPedidos($where){
   );
 }
 }
+public function getProductos(){
+  global $conexion;
+
+  $ordenSQL = "SELECT * FROM productos;";
+  $consulta = $conexion->query($ordenSQL);
+  $productos = array();
+    if ($consulta) {
+      while($fila = $consulta->fetch_array()){
+        $producto = new Producto($fila['codigo'], $fila['descripcion'], $fila['precio'], $fila['existencias'], $fila['imagen'], $fila['categoria']);
+        $productos[] = $producto;
+      }
+    }
+  return array(
+    'success' => true,
+    'productos' => $productos
+  );
+}
 public function modificarUsuario($codigo,$activo){
   global $conexion;
   if($activo == 0){
@@ -100,7 +118,7 @@ public function modificarUsuario($codigo,$activo){
   }else{
     $activo = 0;
   }
-  $ordenSQL = "UPDATE `tienda`.`usuarios` SET `activo`='".$activo."' WHERE `codigo`='".$codigo."'";
+  $ordenSQL = "UPDATE `usuarios` SET `activo`='".$activo."' WHERE `codigo`='".$codigo."'";
 
   $consulta = $conexion->query($ordenSQL);
   if($consulta){
@@ -117,7 +135,7 @@ public function modificarUsuario($codigo,$activo){
 public function modificarPedido($codigo,$estado){
   global $conexion;
   $estado++;
-  $ordenSQL = "UPDATE `tienda`.`pedidos` SET `estado`='".$estado."' WHERE `codigo`='".$codigo."'";
+  $ordenSQL = "UPDATE `pedidos` SET `estado`='".$estado."' WHERE `codigo`='".$codigo."'";
 
   $consulta = $conexion->query($ordenSQL);
   if($consulta){
@@ -131,5 +149,39 @@ public function modificarPedido($codigo,$estado){
     );
   }
 }
+public function modificarProductosControlador($codigo, $descripcion, $precio, $existencias, $imagen, $categoria){
+  global $conexion;
+  $ordenSQL = "UPDATE `productos` SET `descripcion`='".$descripcion."', `precio`='".$precio."', `existencias`='".$existencias."', `imagen`='".$imagen."', `categoria`='".$categoria."' WHERE `codigo`='".$codigo."'";
+
+  $consulta = $conexion->query($ordenSQL);
+  if($consulta){
+    return array(
+      'success' => true
+    );
+  }else{
+    return array(
+      'success' => false,
+      'error' => 'Ha surgido un error'
+    );
+  }
+}
+public function nuevoProducto($descripcion, $precio, $existencias, $imagen, $categoria){
+  global $conexion;
+  $estado++;
+  $ordenSQL = "INSERT INTO `productos` (`descripcion`, `precio`, `existencias`, `imagen`, `categoria`) VALUES ('".$descripcion."', '".$precio."', '".$existencias."', '".$imagen."', '".$categoria."')";
+
+  $consulta = $conexion->query($ordenSQL);
+  if($consulta){
+    return array(
+      'success' => true
+    );
+  }else{
+    return array(
+      'success' => false,
+      'error' => 'Ha surgido un error'
+    );
+  }
+}
+
 }
 ?>

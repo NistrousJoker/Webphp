@@ -3,10 +3,10 @@ include_once '../DAO/Operaciones.php';
 
 try {
   session_start();
-  $resultado = Operaciones::getPedidos('');
+  $resultado = Operaciones::getProductos();
 if($resultado['success'])  {
-  $_SESSION['pedidos'] = $resultado['pedidos'];
-  header("Location: ../../modificarPedidos.php");
+  $_SESSION['productos'] = $resultado['productos'];
+  header("Location: ../../ModificarProductos.php");
   }else {
     header("Location:../../login.php?error=" . $resultado['error']);
 }

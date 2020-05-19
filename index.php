@@ -25,7 +25,7 @@ and open the template in the editor.
                         </div>
                         <div class="servicio-ind">
                             <img class="imagen-prueba2" src="imagenes/images.png" alt="" class="imagen-usuario">
-                            <h3><button type="submit" onclick="Cargar('ModificarProductos.php', 'cuerpo');">Productos</button></h3>
+                            <h3><a href="ModificarProductos.php"><button type="submit">Productos</button> </a></h3>
                             <p></p>
                         </div>
                         <div class="servicio-ind">
