@@ -35,7 +35,7 @@ and open the template in the editor.
           <tbody>
           <?php foreach ($usuarios as $key => $usuario) {
              ?>
-            <tr>
+            <tr> 
               <td><?php echo $usuario->getAdmin(); ?></td>
               <td><?php echo ($usuario->getActivo() == 1 ?  'Activado' : 'Baja'); ?></td>
               <td><?php echo $usuario->getUsuario(); ?></td>

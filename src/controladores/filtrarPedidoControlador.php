@@ -50,7 +50,7 @@ if($resultado['success'])  {
   $_SESSION['pedidos'] = $resultado['pedidos'];
   header("Location: ../../modificarPedidos.php");
   }else {
-    header("Location:../../index.php?error=" . $resultado['error']);
+    header("Location:../../error.php?error=" . $resultado['error']);
   }
 } catch (Exception $exc) {
 echo "error";

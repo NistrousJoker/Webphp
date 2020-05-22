@@ -15,7 +15,7 @@ try {
 if($resultado['success'])  {
   header("Location: ../../modificarProductos.php");
   }else {
-    header("Location:../../index.php?error=" . $resultado['error']);
+    header("Location:../../error.php?error=" . $resultado['error']);
   }
 } catch (Exception $exc) {
 echo "error";

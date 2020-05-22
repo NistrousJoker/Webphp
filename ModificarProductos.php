@@ -50,7 +50,7 @@ and open the template in the editor.
           </tr>
           <?php } ?>
           <tr>
-            <td><input class="productonuevo" name="codigo" value="<?php echo count($productos) + 1; ?>"  readonly/></td>
+            <td></td>
             <td><input class="productonuevo" name="descripcion" required="true"/></td>
             <td><input class="productonuevo" name="precio"  required="true"/></td>
             <td><input class="productonuevo" name="existencias" required="true"/></td>

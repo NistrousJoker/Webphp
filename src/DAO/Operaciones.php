@@ -10,7 +10,6 @@ class Operaciones{
      global $conexion;
 
    $ordenSQL = "SELECT * FROM usuarios WHERE usuario='".$usuario. "' AND clave='".$clave."' AND admin=1;";
-
    $consulta = $conexion->query($ordenSQL);
    if ($consulta) {
        $fila = $consulta->fetch_array();
@@ -60,7 +59,7 @@ class Operaciones{
 public function getPedidos($where){
   global $conexion;
 
-  $ordenSQL = "SELECT distinct* FROM pedidos LEFT JOIN detalle ON detalle.codigo_pedido = pedidos.codigo ".$where;
+  $ordenSQL = "SELECT distinct* FROM pedidos LEFT JOIN detalle ON detalle.codigo_pedido = pedidos.codigo ".$where." group by codigo";
 
   $consulta = $conexion->query($ordenSQL);
   $pedidos = array();

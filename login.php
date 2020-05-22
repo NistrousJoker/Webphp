@@ -27,8 +27,8 @@ if(isset($_SESSION['token'])==sha1("crash")){
                 <h1><?php echo $_GET['error']; ?></h1>
             <?php } ?>
             <h5>Login</h5>
-            <input class="controles" type="text" name="administrador" value="" placeholder="Administrador">
-            <input class="controles" type="password" name="contrasena" value="" placeholder="Contraseña">
+            <input class="controles" type="text" name="administrador" value="" placeholder="Administrador" required="true">
+            <input class="controles" type="password" name="contrasena" value="" placeholder="Contraseña" required="true">
             <input class="ingresar" type="submit" name="ingresar" value="Ingresar">
             <p><a href="#">¿Olvidaste tu Contraseña?</a></p>
         </form>

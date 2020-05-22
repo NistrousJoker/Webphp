@@ -1,6 +1,10 @@
 
 <?php
 include_once '../DAO/Operaciones.php';
+if(empty($_POST['administrador']) || empty($_POST['contrasena'])){
+    header("Location:../../login.php?error=No has rellenado todos los campos" );die;
+}
+
 $usuario = $_POST['administrador'];        
 $clave = $_POST['contrasena'];       
         
@@ -12,7 +16,7 @@ try {
         $_SESSION['token'] = sha1("crash");
         header("Location:../../index.php");
     }else {
-        header("Location:../../login.php?error=" . $resultado['error']);
+    header("Location:../../login.php?error=" . $resultado['error']);
     }
     
 } catch (Exception $exc) {
