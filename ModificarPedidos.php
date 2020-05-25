@@ -7,7 +7,8 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Modificar pedido</title>
+        <link rel="stylesheet" href="css/estilo_1.css">
     </head>
     <body>
       <?php
@@ -20,8 +21,9 @@ and open the template in the editor.
         unset($_SESSION["pedidos"]);
       }
       ?>
-      <a href="index.php"><button>Volver a index</button></a>
-      <table>
+        <h1 style="text-align: center">Modificar pedido</h1>
+        <a href="index.php"><button style="margin: 10px auto;">Volver</button></a>
+      <table cellspacing="50" style="margin: 0 auto; text-align: center">
         <thead>
           <tr>
             <td>Codigo</td>
@@ -70,9 +72,9 @@ and open the template in the editor.
           <?php } ?>
         </tbody>
       </table>
-<h2>Filtro</h2>
-<form class="filtro" action="src\controladores\filtrarPedidoControlador.php" method="post">
-<input type="text" name="usuario" placeholder="usuario" value=""><br />
+      <h2 style="text-align: center">Filtro</h2>
+      <form style="transform: translate(45%, 45%)" class="filtro" action="src\controladores\filtrarPedidoControlador.php" method="post">
+          <input  type="text" name="usuario" placeholder="usuario" value=""><br />
 <input type="text" name="fecha" placeholder="fecha" value=""><br />
 <input type="text" name="producto" placeholder="producto" value=""><br />
 Menor

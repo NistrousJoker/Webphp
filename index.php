@@ -9,17 +9,18 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title></title>
+        <link rel="stylesheet" href="css/estilo.css">
 
     </head>
     <body>
 
 
-        <h1>Login correcto</h1>
+        <h1 style="text-align: center">Login correcto</h1>
         <section class="servicios">
                 <div class="contenedor">
                     <div class="servicio-cont">
                         <div class="servicio-ind">
-                            <img class="imagen-prueba1" src="imagenes/descarga.jfif" alt="" class="imagen-usuario">
+                            <img class="imagen-prueba2" src="imagenes/descarga.jfif" alt="" class="imagen-usuario">
                             <h3><a href="modificarUsuarios.php"><button type="submit">Usuarios</button></a></h3>
                             <p></p>
                         </div>
@@ -29,12 +30,12 @@ and open the template in the editor.
                             <p></p>
                         </div>
                         <div class="servicio-ind">
-                            <img class="imagen-prueba2" src="imagenes/productos/pedido.jpg" alt="" class="imagen-usuario">
+                            <img class="imagen-prueba2" src="imagenes/pedido.jpg" alt="" class="imagen-usuario">
                             <h3><a href="modificarPedidos.php"><button type="submit">Pedidos</button></a></h3>
                             <p></p>
                         </div>
                         <div class="servicio-ind">
-                            <img class="imagen-prueba3" src="imagenes/productos/cerrar.jpg" alt="" class="imagen-usuario">
+                            <img class="imagen-prueba3" src="imagenes/cerrar.jpg" alt="" class="imagen-usuario">
                             <h3><a href="src/controladores/cerrarSesion.php"><button type="submit">Cerrar Sesion </button></a></h3>
                             <p></p>
                         </div>

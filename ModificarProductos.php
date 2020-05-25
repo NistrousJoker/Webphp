@@ -7,7 +7,8 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Modificar prodructos</title>
+        <link rel="stylesheet" href="css/estilo.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="js/custom.js" charset="utf-8"></script>
     </head>
@@ -22,8 +23,11 @@ and open the template in the editor.
         unset($_SESSION["productos"]);
       }
       ?>
-      <a href="index.php"><button>Volver a index</button></a>
-      <table>
+        <h1 style="text-align: center">Modificar un producto</h1>
+        <div>
+      <a href="index.php"><button>Volver</button></a>
+      </div>
+      <table cellspacing="10" style="margin: 0 auto; text-align: center;">
         <thead>
           <tr>
             <td>Codigo</td>

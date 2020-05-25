@@ -7,7 +7,8 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Modificar usuarios</title>
+        <link rel="stylesheet" href="css/estilo.css">
     </head>
     <body>
         <?php
@@ -20,8 +21,11 @@ and open the template in the editor.
           unset($_SESSION["usuarios"]);
         }
         ?>
-        <a href="index.php"><button>Volver a index</button></a>
-        <table>
+        <h1 style="text-align: center">Dar de alta o baja un usuario</h1>
+        <div style="text-align: left">
+        <a href="index.php"><button>Volver</button></a>
+        </div>
+        <table cellspacing="50" style="margin: 0 auto; text-align: center">
           <thead>
             <tr>
               <td>Admin</td>
