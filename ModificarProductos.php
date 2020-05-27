@@ -21,6 +21,15 @@ and open the template in the editor.
       }else{
         $productos = $_SESSION['productos'];
         unset($_SESSION["productos"]);
+        if(isset($_SESSION["productoModificado"])){
+          $codigo = $_SESSION["productoModificado"];
+          unset($_SESSION["productoModificado"]);
+          ?>
+          <script type="text/javascript">
+            alert("Producto con codigo " + <?php echo  $codigo; ?> + ' modificado');
+          </script>
+          <?php
+        }
       }
       ?>
         <h1 style="text-align: center">Modificar un producto</h1>
@@ -44,22 +53,35 @@ and open the template in the editor.
           $boton = 'Enviar';
            ?>
           <tr>
-            <td><input class="producto<?php echo $producto->getCodigo(); ?>" name="codigo" value="<?php echo $producto->getCodigo(); ?>" readonly/></td>
+            <td><p><?php echo $producto->getCodigo(); ?></p></td>
             <td><input class="producto<?php echo $producto->getCodigo(); ?>" name="descripcion" value="<?php echo $producto->getDescripcion(); ?>" required="true"/></td>
             <td><input class="producto<?php echo $producto->getCodigo(); ?>" name="precio" value="<?php echo $producto->getPrecio(); ?>" required="true"/></td>
             <td><input class="producto<?php echo $producto->getCodigo(); ?>" name="existencias" value="<?php echo $producto->getExistencias(); ?>" required="true"/></td>
             <td><input class="producto<?php echo $producto->getCodigo(); ?>" name="imagen" value="<?php echo $producto->getImagen(); ?>" required="true"/></td>
-            <td><input class="producto<?php echo $producto->getCodigo(); ?>" name="categoria" value="<?php echo $producto->getCategoria(); ?>" required="true"/></td>
+            <td>
+              <select class="producto<?php echo $producto->getCodigo(); ?>" name="categoria" required="true">
+                <option value="componentes" <?php echo ($producto->getCategoria() == 'componentes' ? 'selected' : false) ?>>componentes</option>
+                <option value="consolas" <?php echo ($producto->getCategoria() == 'consolas' ?  'selected' : false) ?>>consolas</option>
+                <option value="perifericos" <?php echo ($producto->getCategoria() == 'perifericos' ?  'selected' : false) ?>>perifericos</option>
+                <option value="portatiles" <?php echo ($producto->getCategoria() == 'portatiles' ?  'selected' : false) ?>>portatiles</option>
+              </select>
+            </td>
             <td><button onclick="enviarDatos(<?php echo $producto->getCodigo(); ?>)">Modificar</button></td>
           </tr>
           <?php } ?>
           <tr>
             <td></td>
             <td><input class="productonuevo" name="descripcion" required="true"/></td>
-            <td><input class="productonuevo" name="precio"  required="true"/></td>
-            <td><input class="productonuevo" name="existencias" required="true"/></td>
+            <td><input class="productonuevo" type="number" name="precio"  required="true"/></td>
+            <td><input class="productonuevo" type="number" name="existencias" required="true"/></td>
             <td><input class="productonuevo" name="imagen"  required="true"/></td>
-            <td><input class="productonuevo" name="categoria" required="true"/></td>
+            <td>  <select class="productonuevo" name="categoria" required="true">
+                <option value="">Seleccione una categoria</option>
+                <option value="componentes">componentes</option>
+                <option value="consolas">consolas</option>
+                <option value="perifericos">perifericos</option>
+                <option value="portatiles">portatiles</option>
+              </select></td>
             <td><button onclick="crearProducto('nuevo')">Crear</button></td>
           </tr>
         </tbody>

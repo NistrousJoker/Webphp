@@ -14,11 +14,19 @@ class Operaciones{
    if ($consulta) {
        $fila = $consulta->fetch_array();
        if($fila){
+         $activo = $fila['activo'];
+         if($activo == 1){
             $usuario = $fila['usuario'];
             return array(
                 'success' => true,
                 'datos' => $usuario
             );
+          }else{
+            return array(
+                'success' => false,
+                'error' => 'Usuario no activo'
+            );
+          }
        }else{
           return array(
            'success' => false,

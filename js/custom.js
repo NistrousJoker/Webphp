@@ -1,6 +1,6 @@
 function enviarDatos(codigo){
   var inputs = $('.producto' + codigo);
-  var getValue = '';
+  var getValue = 'codigo='+codigo;
   for (var i = 0; i < inputs.length; i++) {
     if(getValue != ''){
       getValue += '&';
